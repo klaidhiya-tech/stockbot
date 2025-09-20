@@ -1,0 +1,89 @@
+body {
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.card {
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    margin-bottom: 1rem;
+}
+
+.card-header {
+    font-weight: 600;
+    background-color: #e8eee9;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+
+.table th {
+    font-weight: 600;
+    background-color: #2a73e0;
+    
+}
+
+.urgence-critique {
+    background-color: #fffafa !important;
+}
+
+.urgence-élevé {
+    background-color: #ffebcc !important;
+}
+
+.urgence-moyen {
+    background-color: #ffffcc !important;
+}
+
+.urgence-faible {
+    background-color: #ccffcc !important;
+}
+
+.badge-urgence-critique {
+    background-color: #dc3545;
+}
+
+.badge-urgence-élevé {
+    background-color: #fd7e14;
+}
+
+.badge-urgence-moyen {
+    background-color: #ffc107;
+    color: #000;
+}
+
+.badge-urgence-faible {
+    background-color: #198754;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    .table-responsive {
+        font-size: 0.875rem;
+    }
+    
+    .btn-sm {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.75rem;
+    }
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(0, 123, 255, 0.1);
+}
+
+.btn {
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}

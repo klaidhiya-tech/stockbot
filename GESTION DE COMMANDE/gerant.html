@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent d'Achat - Tableau de Bord</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .navbar {
+            background: #2c3e50;
+        }
+
+        .sidebar {
+            background: #34495e;
+            min-height: calc(100vh - 73px);
+            padding: 0;
+        }
+
+        .sidebar .nav-link {
+            color: #ecf0f1;
+            padding: 12px 20px;
+            border-left: 4px solid transparent;
+        }
+
+        .sidebar .nav-link:hover {
+            background: #3498db;
+            border-left-color: #3498db;
+        }
+
+        .sidebar .nav-link.active {
+            background: #2c3e50;
+            border-left-color: #e74c3c;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .stat-label {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+
+        .urgence-critique {
+            background-color: #ffcccc !important;
+        }
+
+        .urgence-eleve {
+            background-color: #ffebcc !important;
+        }
+
+        .urgence-moyen {
+            background-color: #ffffcc !important;
+        }
+
+        .table th {
+            background: #34495e;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <span class="navbar-brand">📦 Système de Gestion des Commandes - Tunisie</span>
+            <div class="d-flex align-items-center">
+                <span class="text-white me-3">Agent: Mohamed Ali</span>
+                <button class="btn btn-outline-light btn-sm" onclick="logout()">
+                    <i class="fas fa-sign-out-alt"></i> Déconnexion
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2 sidebar p-0">
+                <div class="nav flex-column">
+                    <a class="nav-link active" href="#">
+                        <i class="fas fa-home me-2"></i> Tableau de bord
+                    </a>
+                    <a class="nav-link" href="#">
+                        <i class="fas fa-box me-2"></i> Produits
+                    </a>
+                    <a class="nav-link" href="#">
+                        <i class="fas fa-truck me-2"></i> Fournisseurs
+                    </a>
+                    <a class="nav-link" href="#">
+                        <i class="fas fa-shopping-cart me-2"></i> Commandes
+                    </a>
+                    <a class="nav-link" href="#">
+                        <i class="fas fa-chart-bar me-2"></i> Statistiques
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-10 p-4">
+                <h2 class="mb-4">Tableau de Bord Agent d'Achat</h2>
+                
+                <div class="row mb-4">
+                    <div class="col-md-4">
+                        <div class="stat-card">
+                            <div class="stat-number">42</div>
+                            <div class="stat-label">Produits à commander</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="stat-card">
+                            <div class="stat-number">8</div>
+                            <div class="stat-label">Urgences critiques</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="stat-card">
+                            <div class="stat-number">15</div>
+                            <div class="stat-label">Commandes ce mois</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0">📋 Liste des produits à commander</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Produit</th>
+                                        <th>Stock</th>
+                                        <th>Seuil Min</th>
+                                        <th>Quantité</th>
+                                        <th>Fournisseur</th>
+                                        <th>Urgence</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="urgence-critique">
+                                        <td>P1001 - Huile d'olive extra vierge</td>
+                                        <td>5</td>
+                                        <td>50</td>
+                                        <td>45</td>
+                                        <td>Société Nour Distribution</td>
+                                        <td><span class="badge bg-danger">🔴 Critique</span></td>
+                                        <td>
+                                            <button class="btn btn-success btn-sm">
+                                                <i class="fas fa-shopping-cart"></i> Commander
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="urgence-eleve">
+                                        <td>P1002 - Couscous moyen 1kg</td>
+                                        <td>20</td>
+                                        <td>50</td>
+                                        <td>30</td>
+                                        <td>Tunifood SARL</td>
+                                        <td><span class="badge bg-warning">🟠 Élevé</span></td>
+                                        <td>
+                                            <button class="btn btn-success btn-sm">
+                                                <i class="fas fa-shopping-cart"></i> Commander
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="urgence-moyen">
+                                        <td>P1003 - Tomate concentrée 800g</td>
+                                        <td>35</td>
+                                        <td>50</td>
+                                        <td>15</td>
+                                        <td>Sodimas Agro</td>
+                                        <td><span class="badge bg-info">🟡 Moyen</span></td>
+                                        <td>
+                                            <button class="btn btn-success btn-sm">
+                                                <i class="fas fa-shopping-cart"></i> Commander
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function logout() {
+            if (confirm('Êtes-vous sûr de vouloir vous déconnecter ?')) {
+                window.location.href = 'login.html';
+            }
+        }
+    </script>
+</body>
+</html>
